@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pro Web - Soluções Digitais</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <header>
+        <div class="container">
+            <a href="#inicio" class="logo-container">
+                <img src="images/logo.png" alt="Logo da Pro Web" class="logo" />
+                <span class="nome-empresa">Pro Web</span>
+            </a>
+            <nav>
+                <a href="#inicio">Início</a>
+                <a href="#sobre">Sobre Nós</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#contato">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section id="inicio" class="hero">
+            <div class="container">
+                <h2>Transformamos ideias em presença digital</h2>
+                <p>Na Pro Web, desenvolvemos soluções digitais sob medida que elevam a presença online do seu negócio,
+                    fortalecendo sua marca, ampliando seu alcance e criando conexões mais eficazes com seu público.</p>
+                <a href="#servicos" class="botao">Conheça nossos serviços</a>
+            </div>
+        </section>
+
+        <!-- SOBRE NÓS -->
+        <section id="sobre" class="sobre-nos">
+            <div class="container">
+                <h2>Sobre Nós</h2>
+                <p class="intro">
+                    A <strong>Pro Web</strong> nasceu com o propósito de conectar empresas e profissionais ao mundo
+                    digital de forma acessível, criativa e eficaz. Somos apaixonados por tecnologia, design e
+                    resultados.
+                </p>
+                <div class="sobre-grid">
+                    <div>
+                        <h3>Missão</h3>
+                        <p>Oferecer soluções digitais de qualidade que fortaleçam a presença online de nossos clientes
+                            com agilidade, inovação e custo acessível.</p>
+                    </div>
+                    <div>
+                        <h3>Visão</h3>
+                        <p>Ser referência nacional em desenvolvimento de sites, catálogos e portfólios digitais para
+                            pequenos negócios e empreendedores.</p>
+                    </div>
+                    <div>
+                        <h3>Valores</h3>
+                        <p>Compromisso, transparência, criatividade, ética e paixão por tecnologia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVIÇOS -->
+        <section id="servicos" class="servicos">
+            <div class="container">
+                <h2>Nossos Serviços</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <div class="card-icon">📦</div>
+                        <h3>Catálogos Virtuais</h3>
+                        <p>Catálogos modernos com link direto para o WhatsApp. Ideal para vender mais online.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🧑‍💼</div>
+                        <h3>Portfólios Profissionais</h3>
+                        <p>Portfólios personalizados para freelancers, designers, fotógrafos e outros profissionais.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🍽️</div>
+                        <h3>Cardápios Digitais</h3>
+                        <p>Cardápios elegantes acessíveis por QR Code. Simples, higiênico e eficiente.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🌐</div>
+                        <h3>Mini Sites & Sites</h3>
+                        <p>Sites rápidos, leves e com visual profissional para posicionar sua marca no digital.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULÁRIO -->
+        <section class="formulario-contato" id="contato">
+            <div class="container">
+                <h2>Solicite um Orçamento</h2>
+                <p>Preencha o formulário e entraremos em contato rapidamente.</p>
+
+                <form action="https://formsubmit.co/harone15@outlook.com" method="POST" class="formulario contato-pro">
+                    <div class="form-linha">
+                        <div class="campo-flutuante">
+                            <input type="text" id="nome" name="nome" required />
+                            <label for="nome">Nome completo</label>
+                        </div>
+                        <div class="campo-flutuante">
+                            <input type="email" id="email" name="email" required />
+                            <label for="email">E-mail</label>
+                        </div>
+                    </div>
+
+                    <div class="form-linha">
+                        <div class="campo-flutuante">
+                            <input type="tel" id="telefone" name="telefone" required />
+                            <label for="telefone">Telefone</label>
+                        </div>
+                        <div class="campo-flutuante">
+                            <select id="servico" name="servico" required>
+                                <option value="" disabled selected></option>
+                                <option value="Catálogo Virtual">Catálogo Virtual</option>
+                                <option value="Portfólio Profissional">Portfólio Profissional</option>
+                                <option value="Cardápio Digital">Cardápio Digital</option>
+                                <option value="Site Personalizado">Site Personalizado</option>
+                            </select>
+                            <label for="servico">Serviço desejado</label>
+                        </div>
+                    </div>
+
+                    <div class="campo-flutuante full">
+                        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+                        <label for="mensagem">Mensagem</label>
+                    </div>
+
+                    <input type="hidden" name="_captcha" value="false" />
+                    <input type="hidden" name="_next" value="obrigado.html" />
+
+                    <button type="submit" class="botao-form">Enviar Mensagem</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            &copy; <span id="anoAtual"></span> Pro Web. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("anoAtual").textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+
+</html>
