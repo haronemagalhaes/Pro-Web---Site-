@@ -6,9 +6,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pro Web - Soluções Digitais</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+        :root {
+            --bg: #f9fafb;
+            --text: #1f2937;
+            --header: #ffffff;
+            --link: #2563eb;
+        }
+
+        body.dark-mode {
+            --bg: #1f2937;
+            --text: #f9fafb;
+            --header: #111827;
+            --link: #3b82f6;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            background-color: var(--header);
+        }
+
+        nav a {
+            color: var(--text);
+        }
+
+        .nome-empresa {
+            color: var(--text);
+            transition: color 0.3s ease;
+        }
+
+        .botao-form,
+        .botao {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .botao:hover,
+        .botao-form:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .animar {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-up.visivel {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .slide-left {
+            transform: translateX(-40px);
+        }
+
+        .slide-left.visivel {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .fade-right {
+            transform: translateX(40px);
+        }
+
+        .fade-right.visivel {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .zoom-in {
+            transform: scale(0.9);
+        }
+
+        .zoom-in.visivel {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .toggle-mode {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 2000;
+        }
+
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .spinner {
+            border: 2px solid #ccc;
+            border-top: 2px solid #2563eb;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            animation: spin 0.8s linear infinite;
+            display: inline-block;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <button class="toggle-mode" id="modoBtn">🌙</button>
+
     <!-- NAVBAR -->
     <header>
         <div class="container">
@@ -27,79 +150,74 @@
 
     <main>
         <!-- HERO -->
-        <section id="inicio" class="hero">
+        <section id="inicio" class="hero animar fade-up">
             <div class="container">
                 <h2>Transformamos ideias em presença digital</h2>
-                <p>Na Pro Web, desenvolvemos soluções digitais sob medida que elevam a presença online do seu negócio,
-                    fortalecendo sua marca, ampliando seu alcance e criando conexões mais eficazes com seu público.</p>
+                <p>Na Pro Web, desenvolvemos soluções digitais sob medida que elevam a presença online do seu negócio.
+                </p>
                 <a href="#servicos" class="botao">Conheça nossos serviços</a>
             </div>
         </section>
 
         <!-- SOBRE NÓS -->
-        <section id="sobre" class="sobre-nos">
+        <section id="sobre" class="sobre-nos animar slide-left">
             <div class="container">
                 <h2>Sobre Nós</h2>
-                <p class="intro">
-                    A <strong>Pro Web</strong> nasceu com o propósito de conectar empresas e profissionais ao mundo
-                    digital de forma acessível, criativa e eficaz. Somos apaixonados por tecnologia, design e
-                    resultados.
-                </p>
+                <p class="intro"><strong>Pro Web</strong> nasceu para conectar empresas ao mundo digital com
+                    criatividade e acessibilidade.</p>
                 <div class="sobre-grid">
                     <div>
                         <h3>Missão</h3>
-                        <p>Oferecer soluções digitais de qualidade que fortaleçam a presença online de nossos clientes
-                            com agilidade, inovação e custo acessível.</p>
+                        <p>Oferecer soluções digitais de qualidade com inovação e custo acessível.</p>
                     </div>
                     <div>
                         <h3>Visão</h3>
-                        <p>Ser referência nacional em desenvolvimento de sites, catálogos e portfólios digitais para
-                            pequenos negócios e empreendedores.</p>
+                        <p>Ser referência em sites, catálogos e portfólios digitais para pequenos negócios.</p>
                     </div>
                     <div>
                         <h3>Valores</h3>
-                        <p>Compromisso, transparência, criatividade, ética e paixão por tecnologia.</p>
+                        <p>Transparência, ética, criatividade e paixão por tecnologia.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- SERVIÇOS -->
-        <section id="servicos" class="servicos">
+        <section id="servicos" class="servicos animar zoom-in">
             <div class="container">
                 <h2>Nossos Serviços</h2>
                 <div class="card-container">
                     <div class="card">
                         <div class="card-icon">📦</div>
                         <h3>Catálogos Virtuais</h3>
-                        <p>Catálogos modernos com link direto para o WhatsApp. Ideal para vender mais online.</p>
+                        <p>Modernos e integrados ao WhatsApp. Ideal para vender mais.</p>
                     </div>
                     <div class="card">
                         <div class="card-icon">🧑‍💼</div>
                         <h3>Portfólios Profissionais</h3>
-                        <p>Portfólios personalizados para freelancers, designers, fotógrafos e outros profissionais.</p>
+                        <p>Para freelancers, designers, fotógrafos e mais.</p>
                     </div>
                     <div class="card">
                         <div class="card-icon">🍽️</div>
                         <h3>Cardápios Digitais</h3>
-                        <p>Cardápios elegantes acessíveis por QR Code. Simples, higiênico e eficiente.</p>
+                        <p>Via QR Code, modernos e higiênicos.</p>
                     </div>
                     <div class="card">
                         <div class="card-icon">🌐</div>
                         <h3>Mini Sites & Sites</h3>
-                        <p>Sites rápidos, leves e com visual profissional para posicionar sua marca no digital.</p>
+                        <p>Leves, rápidos e com design profissional.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- FORMULÁRIO -->
-        <section class="formulario-contato" id="contato">
+        <section class="formulario-contato animar fade-right" id="contato">
             <div class="container">
                 <h2>Solicite um Orçamento</h2>
                 <p>Preencha o formulário e entraremos em contato rapidamente.</p>
 
-                <form action="https://formsubmit.co/harone15@outlook.com" method="POST" class="formulario contato-pro">
+                <form id="formContato" class="formulario contato-pro">
                     <div class="form-linha">
                         <div class="campo-flutuante">
                             <input type="text" id="nome" name="nome" required />
@@ -118,7 +236,7 @@
                         </div>
                         <div class="campo-flutuante">
                             <select id="servico" name="servico" required>
-                                <option value="" disabled selected></option>
+                                <option value="" disabled selected>Selecione um serviço</option>
                                 <option value="Catálogo Virtual">Catálogo Virtual</option>
                                 <option value="Portfólio Profissional">Portfólio Profissional</option>
                                 <option value="Cardápio Digital">Cardápio Digital</option>
@@ -133,11 +251,10 @@
                         <label for="mensagem">Mensagem</label>
                     </div>
 
-                    <input type="hidden" name="_captcha" value="false" />
-                    <input type="hidden" name="_next" value="obrigado.html" />
-
-                    <button type="submit" class="botao-form">Enviar Mensagem</button>
+                    <button type="submit" class="botao-form" id="btnEnviar">Enviar Mensagem</button>
                 </form>
+
+                <div id="mensagem-resultado" class="mensagem-resultado"></div>
             </div>
         </section>
     </main>
@@ -149,9 +266,66 @@
     </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            document.getElementById("anoAtual").textContent = new Date().getFullYear();
+        // Ano atual
+        document.getElementById("anoAtual").textContent = new Date().getFullYear();
+
+        // Tema escuro
+        const btnModo = document.getElementById("modoBtn");
+        btnModo.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+            btnModo.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
         });
+
+        // Formulário com loading
+        const form = document.getElementById("formContato");
+        const btnEnviar = document.getElementById("btnEnviar");
+
+        form.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const spinner = document.createElement("span");
+            spinner.className = "spinner";
+            btnEnviar.appendChild(spinner);
+            btnEnviar.classList.add("loading");
+
+            const dados = {
+                nome: document.getElementById("nome").value,
+                email: document.getElementById("email").value,
+                telefone: document.getElementById("telefone").value,
+                servico: document.getElementById("servico").value,
+                mensagem: document.getElementById("mensagem").value
+            };
+
+            try {
+                const res = await fetch("http://localhost:3001/api/contato", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(dados)
+                });
+
+                const resultado = await res.json();
+                document.getElementById("mensagem-resultado").textContent =
+                    resultado.message || "Mensagem enviada com sucesso!";
+                form.reset();
+            } catch (erro) {
+                document.getElementById("mensagem-resultado").textContent =
+                    "Erro ao enviar. Verifique sua conexão.";
+                console.error("Erro:", erro);
+            } finally {
+                btnEnviar.classList.remove("loading");
+                spinner.remove();
+            }
+        });
+
+        // Scroll Reveal
+        const observador = new IntersectionObserver((entradas) => {
+            entradas.forEach((entrada) => {
+                if (entrada.isIntersecting) {
+                    entrada.target.classList.add("visivel");
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll(".animar").forEach((el) => observador.observe(el));
     </script>
 </body>
 
