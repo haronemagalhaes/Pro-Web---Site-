@@ -21,3 +21,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     elementosAnimar.forEach((el) => observer.observe(el));
 });
+// MODAL de imagem ao clicar nos cards
+document.querySelectorAll(".card").forEach(card => {
+    card.addEventListener("click", () => {
+        const imagem = card.getAttribute("data-imagem");
+        const modal = document.getElementById("modalImagem");
+        const imagemPreview = document.getElementById("imagemPreview");
+
+        imagemPreview.src = imagem;
+        modal.style.display = "flex";
+    });
+});
+
+document.querySelector(".fechar").addEventListener("click", () => {
+    document.getElementById("modalImagem").style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+    const modal = document.getElementById("modalImagem");
+    if (e.target === modal) modal.style.display = "none";
+});

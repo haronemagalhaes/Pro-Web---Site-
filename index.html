@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pro Web - Soluções Digitais</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <style>
         :root {
@@ -126,27 +127,74 @@
                 transform: rotate(360deg);
             }
         }
+
+        #inicio {
+            background-color: #f0f8ff;
+        }
+
+        section.my-5 {
+            background-color: #e6f2ff;
+            padding: 4rem 0;
+        }
+
+        #sobre {
+            background: linear-gradient(to right, #e0ecff, #f3e8ff);
+        }
+
+        #servicos {
+            background-color: #f3f4f6;
+        }
+
+        #contato {
+            background-color: #f9f5ff;
+        }
+
+        footer {
+            background-color: #111827;
+            color: #fff;
+        }
     </style>
 </head>
 
 <body>
     <button class="toggle-mode" id="modoBtn">🌙</button>
 
-    <!-- NAVBAR -->
-    <header>
+    <!-- NAVBAR MODERNA -->
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm py-3" style="background-color: var(--header);">
         <div class="container">
-            <a href="#inicio" class="logo-container">
-                <img src="images/logo.png" alt="Logo da Pro Web" class="logo" />
-                <span class="nome-empresa">Pro Web</span>
+            <a class="navbar-brand d-flex align-items-center" href="#inicio">
+                <img src="images/logo.png" alt="Logo da Pro Web" style="height: 40px;" class="me-2">
+                <span class="fw-bold nome-empresa fs-5">Pro Web</span>
             </a>
-            <nav>
-                <a href="#inicio">Início</a>
-                <a href="#sobre">Sobre Nós</a>
-                <a href="#servicos">Serviços</a>
-                <a href="#contato">Contato</a>
-            </nav>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="d-flex d-lg-none ms-auto">
+                <button class="toggle-mode" id="modoBtnMobile">🌙</button>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#inicio">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#sobre">Sobre Nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#servicos">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#contato">Contato</a>
+                    </li>
+                </ul>
+                <button class="toggle-mode d-none d-lg-block" id="modoBtnDesktop">🌙</button>
+            </div>
         </div>
-    </header>
+    </nav>
+
+
+    <!-- ... (cabeçalho igual ao seu) -->
 
     <main>
         <!-- HERO -->
@@ -156,6 +204,45 @@
                 <p>Na Pro Web, desenvolvemos soluções digitais sob medida que elevam a presença online do seu negócio.
                 </p>
                 <a href="#servicos" class="botao">Conheça nossos serviços</a>
+            </div>
+        </section>
+
+        <!-- CARROSSEL ENTRE INÍCIO E SOBRE NÓS -->
+        <section class="my-5">
+            <div class="container">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/cadarpio.jp" class="d-block w-100" alt="Serviço 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/Imagem do WhatsApp de 2025-06-05 à(s) 18.11.01_5e7c50d2.jpg"
+                                class="d-block w-100" alt="Serviço 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/site.jpg" class="d-block w-100" alt="Serviço 3">
+
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Próximo</span>
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -181,6 +268,7 @@
                 </div>
             </div>
         </section>
+
 
         <!-- SERVIÇOS -->
         <section id="servicos" class="servicos animar zoom-in">
@@ -210,6 +298,8 @@
                 </div>
             </div>
         </section>
+
+
 
         <!-- FORMULÁRIO -->
         <section class="formulario-contato animar fade-right" id="contato">
@@ -260,23 +350,58 @@
     </main>
 
     <footer>
-        <div class="container">
-            &copy; <span id="anoAtual"></span> Pro Web. Todos os direitos reservados.
-        </div>
+        <footer class="mt-5 pt-5 border-top bg-dark text-white">
+            <div class="container">
+                <div class="row text-center text-md-start">
+                    <!-- Coluna da marca -->
+                    <div class="col-md-4 mb-4">
+                        <h5 class="fw-bold mb-3">Pro Web</h5>
+                        <p>Transformamos ideias em presença digital com soluções sob medida.</p>
+                    </div>
+
+                    <!-- Coluna de navegação -->
+                    <div class="col-md-4 mb-4">
+                        <h5 class="fw-bold mb-3">Navegação</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#inicio" class="text-white text-decoration-none">Início</a></li>
+                            <li><a href="#sobre" class="text-white text-decoration-none">Sobre Nós</a></li>
+                            <li><a href="#servicos" class="text-white text-decoration-none">Serviços</a></li>
+                            <li><a href="#contato" class="text-white text-decoration-none">Contato</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Coluna de redes sociais -->
+                    <div class="col-md-4 mb-4">
+                        <h5 class="fw-bold mb-3">Redes Sociais</h5>
+                        <a href="#" class="text-white d-block mb-2"><i class="bi bi-facebook me-2"></i>Facebook</a>
+                        <a href="#" class="text-white d-block mb-2"><i class="bi bi-instagram me-2"></i>Instagram</a>
+                        <a href="#" class="text-white d-block"><i class="bi bi-whatsapp me-2"></i>WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Créditos -->
+                <div class="text-center mt-3 border-top pt-3">
+                    &copy; <span id="anoAtual"></span> Pro Web. Todos os direitos reservados.
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Atualiza o ano automaticamente
+            document.getElementById("anoAtual").textContent = new Date().getFullYear();
+        </script>
+
     </footer>
 
     <script>
-        // Ano atual
         document.getElementById("anoAtual").textContent = new Date().getFullYear();
 
-        // Tema escuro
         const btnModo = document.getElementById("modoBtn");
         btnModo.addEventListener("click", () => {
             document.body.classList.toggle("dark-mode");
             btnModo.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
         });
 
-        // Formulário com loading
         const form = document.getElementById("formContato");
         const btnEnviar = document.getElementById("btnEnviar");
 
@@ -301,14 +426,11 @@
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(dados)
                 });
-
                 const resultado = await res.json();
-                document.getElementById("mensagem-resultado").textContent =
-                    resultado.message || "Mensagem enviada com sucesso!";
+                document.getElementById("mensagem-resultado").textContent = resultado.message || "Mensagem enviada com sucesso!";
                 form.reset();
             } catch (erro) {
-                document.getElementById("mensagem-resultado").textContent =
-                    "Erro ao enviar. Verifique sua conexão.";
+                document.getElementById("mensagem-resultado").textContent = "Erro ao enviar. Verifique sua conexão.";
                 console.error("Erro:", erro);
             } finally {
                 btnEnviar.classList.remove("loading");
@@ -316,7 +438,6 @@
             }
         });
 
-        // Scroll Reveal
         const observador = new IntersectionObserver((entradas) => {
             entradas.forEach((entrada) => {
                 if (entrada.isIntersecting) {
@@ -327,6 +448,9 @@
 
         document.querySelectorAll(".animar").forEach((el) => observador.observe(el));
     </script>
+    <!-- Bootstrap JS (com Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
-</html>
+</html
